@@ -23,6 +23,9 @@ body {
   display:flex;
   justify-content: space-between;
 }
+.topper {
+  align-items:center;
+}
 
 .social-nav {
   z-index:1;
@@ -197,6 +200,10 @@ a {
   }
   .contact {
     align-self: flex-end;
+  }
+
+  .main-wrapper {
+    padding:10vw;
   }
 
 }
