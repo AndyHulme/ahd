@@ -198,6 +198,9 @@ a {
     display:flex;
     flex-direction: column;
   }
+  .social-nav a:not(:last-child) {
+    margin-bottom:1em;
+  }
   .contact {
     align-self: flex-end;
   }
