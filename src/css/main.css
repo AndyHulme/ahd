@@ -101,6 +101,8 @@ a {
   left:0;
   pointer-events: none;
   height:100vh;
+   /* mobile viewport bug fix */
+   min-height: -webkit-fill-available;
   display:flex;
   align-items:center;
   z-index:-1;
