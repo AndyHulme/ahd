@@ -1,32 +1,204 @@
-/*
-  You can use import statements to include partials:
- */
 @import 'imports/reset.css';
+@import 'imports/vars.css';
+@import 'imports/typography.css';
+@import 'imports/lightmode.css';
 
 /*
-  Or add your statements here:
- */
-body {
-  font-size: calc(10px + 1vmin);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  Let's a-go!
+*/
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: #282c34;
-  color: white;
+html {
+  box-sizing: border-box;
 }
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--body-color);
+}
+
+.topper, .footer {
+  display:flex;
+  justify-content: space-between;
+}
+
+.social-nav {
+  z-index:1;
+}
+  .social-nav a {
+   
+   margin-right:2rem;
+  }
+
+  a:after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    background: var(--body-color);
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    z-index: -1;
+  }
+  a:hover::after {
+    width: 100%;
+  }
+
+  h1 {
+    max-width:40rem;
+    font-weight:400;
+  }
 
 a {
-  color: pink;
+  color: var(--body-color);
   text-decoration: none;
+  position: relative;
 }
 
-.content {
-  padding: 0 32px;
+.derulo:hover > .wiggle {  
+  animation-name: wave;  
+  animation-duration: 2.5s;
 }
+
+.wiggle {
+  display: inline-block;  
+  transform-origin: 70% 90%;  /* Pivot around the bottom-left palm */ 
+}
+
+@keyframes wave {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) } 
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}
+
+.main-wrapper {
+  padding:5vw;
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow:hidden;
+  z-index:1;
+}
+
+.fancy-wrap {
+  position:absolute;
+  top:0;
+  left:0;
+  pointer-events: none;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  z-index:-1;
+  transform:translateX(-15em);
+}
+
+.circle {
+  height:20em;
+  width:20em;
+  border-radius:20em;
+  position:absolute;
+  filter: blur(60px);
+
+}
+
+.blur-bois {
+  width:30em;
+  height:30em;
+  position: relative;
+  opacity:.9;  
+  
+  animation: rotation 24s infinite linear alternate-reverse;
+  
+}
+
+.blur-bois:after {
+  content:'';
+  width:24em;
+  height:24em;
+  border-radius:24em;
+  background:var(--bg-color);
+  position: absolute;
+  transform: translate(3em,3em);
+  opacity: .8;
+  box-shadow: 0px 0px 2em rgba(255, 255, 255, 0.3);
+}
+
+.circle:nth-of-type(1) {
+  background:#84C4FF;
+  top:0;
+  left:0;
+  /*animation: blue-start 6s ease infinite alternate;*/
+
+}
+.circle:nth-of-type(2) {
+  background:#FFDC84;
+  top:0;
+  right:0;
+  /* animation: yellow-start 6s ease infinite alternate; */
+
+}
+.circle:nth-of-type(3) {
+  background:#FF8484;
+  bottom:0;
+  right:0;
+  /* animation: red-start 6s ease infinite alternate; */
+
+}
+.circle:nth-of-type(4) {
+  background:#9C84FF;
+  bottom:0;
+  left:0;
+  /* animation: purple-start 6s ease infinite alternate; */
+
+}
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg) scale(0.95);
+  }
+  to {
+    transform: rotate(359deg) scale(1);
+  }
+}
+
+
+.theme-switch input {
+  display:none;
+}
+
+.switcheroo {
+  width:.5em;
+  height:.5em;
+  background:var(--body-color);
+  border-radius:1em;
+  transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.switcheroo:hover {
+  transform:scale(2);  
+}
+
+@media screen and (max-width: 470px) {
+  .social-nav {
+    display:flex;
+    flex-direction: column;
+  }
+  .contact {
+    align-self: flex-end;
+  }
+
+}
+
+

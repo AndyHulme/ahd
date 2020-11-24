@@ -1,0 +1,13 @@
+/*
+  css variables
+ */
+
+ :root {
+  --bg-color: #21233C;
+  --body-color: #fff;
+}
+
+[data-theme="light"] {
+  --bg-color: #fff;
+  --body-color: #21233C;
+}
